@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert Material</title>
+
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="p"  align="center">
+<h1>Add Material</h1>
+<form action="#" th:action="@{/savedataMaterial}" th:object="${newDataFurniture}" method="post">
+
+     Name:<input type="text" th:field="*{name}" placeholder="Enter Material Name" class="form-control mb-4 col-4" required="required"/>
+     Size:<input type="text" th:field="*{size}" placeholder="Enter Material Size" class="form-control mb-4 col-4" required="required"/>
+     Price:<input type="text" th:field="*{price}" placeholder="Enter Material price" class="form-control mb-4 col-4" required="required"/> 
+
+     
+      
+     <button type="submit" class="btn btn-secondary">Submit</button>
+     <button type="reset"  class="btn btn-info">Clear</button>
+<br>
+
+<a th:href= "@{/log}" >Go Back</a>
+
+</form>
+</div>
+</body>
+</html>

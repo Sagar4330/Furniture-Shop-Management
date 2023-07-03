@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Furniture Mainu</title>
+
+
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+crossorigin="anonymous">
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand" href="#">Material Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+    <ul class="navbar-nav ml-auto text-uppercase">
+    
+      <li class="nav-item active">
+        <a th:href="@{/}" class="nav-link" href="#">Home
+         <span class="sr-only">(current)</span></a>
+      </li>    
+      
+    </ul>
+    
+  </div>
+</nav>
+
+
+<div class="container my-2" >
+
+
+<h1>Material List</h1>
+
+<a th:href="@{/log/addMaterial}" class="btn btn-primary btn-sm m-3">Add</a>
+<fieldset class="p">
+
+<table border="2" class="table table-striped table-responsive-md">
+<thead>
+     <tr class="redtext">
+     <th>Id</th>
+     <th>Material Name</th>
+     <th>Material Size</th>
+     <th>Material Price</th>
+     <th>Detail</th>
+     
+     </tr>
+
+</thead>
+
+<tbody>
+     <tr th:each = "e :${Furlist}">
+     
+     <td  th:text= "${e.id}" ></td>
+     <td  th:text= "${e.name}"></td>
+     <td  th:text= "${e.size}"></td>
+     <td  th:text= "${e.price}"></td>
+     
+     <td><a th:href="@{/log/updateMaterial/{id}(id=${e.id})}" class="btn btn-info">Update</a>
+         <a th:href="@{log/deleteMaterial/{id}(id=${e.id})}" class="btn btn-danger">Delect</a>
+     
+     </td>
+     </tr>
+
+</tbody>
+
+</table>
+
+</fieldset>
+</div>
+
+
+
+</body>
+</html>
